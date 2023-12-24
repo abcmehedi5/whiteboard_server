@@ -52,6 +52,17 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-
+// delete drawing by id
+router.delete("/:id", async (req, res) => {
+  try {
+    const drawing = await Drawing.findByIdAndDelete(req.params.id);
+    if (!drawing) {
+      return res.status(404).send("Drawing not found");
+    }
+    res.send(drawing);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+});
 
 module.exports = router;
