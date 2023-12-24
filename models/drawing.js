@@ -3,10 +3,16 @@ const mongoose = require("mongoose");
 const drawingSchema = new mongoose.Schema({
   type: {
     type: String,
-    enum: ["line", "shape", "text"],
     required: true,
   },
-  data: mongoose.Schema.Types.Mixed,
+  drawing: {
+    type: Buffer,
+    required: true,
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("drawing", drawingSchema);
