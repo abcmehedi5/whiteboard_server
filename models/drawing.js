@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 
 const drawingSchema = new mongoose.Schema({
-  type: {
+  date: {
     type: String,
     required: true,
   },
   drawing: {
-    type: Buffer,
+    type: String,
     required: true,
   },
-  date: {
-    type: Date,
+  type: {
+    type: String,
     required: true,
   },
 });
