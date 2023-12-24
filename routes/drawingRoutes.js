@@ -37,5 +37,21 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// update drawing by id
+router.put("/:id", async (req, res) => {
+  try {
+    const drawing = await Drawing.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!drawing) {
+      return res.status(404).send("Drawing not found");
+    }
+    res.send(drawing);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+});
+
+
 
 module.exports = router;
