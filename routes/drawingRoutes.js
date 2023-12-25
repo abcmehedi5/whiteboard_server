@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-const Drawing = require("../models/Drawing");
+const Drawing = require('../models/drawing')
 // post drawing
 router.post("/", async (req, res) => {
   try {
