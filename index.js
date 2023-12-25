@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
-const cors = require('cors')
+const cors = require("cors");
 require("dotenv").config();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const connectDB = require("./config/database");
 const drawingRoutes = require("./routes/drawingRoutes");
 // Connect to database
@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 
 // Middleware
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 // Routes
 app.use("/api/drawing", drawingRoutes);
